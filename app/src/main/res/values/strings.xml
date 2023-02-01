@@ -1,0 +1,107 @@
+<resources>
+    <string name="app_name">Helicopter</string>
+    <string name="title">Mi8</string>
+    <string name="app_version">Helicopter v. %1$s</string>
+    <string name="dev_name">Andrew Cooper</string>
+    <string name="dev_link">\@andrewcooper</string>
+    <string name="dev_email">an359747@gmail.com</string>
+
+    <string name="menu_home">Главная</string>
+    <string name="menu_list">Список деталей</string>
+    <string name="menu_settings">Настройки</string>
+    <string name="menu_developer">О разработчике</string>
+    <string name="menu_exit">Выход</string>
+    <string name="action_add">Добавить деталь</string>
+    <string name="action_search">Поиск</string>
+    <string name="action_reload">Обновить</string>
+    <string name="delete">Удалить</string>
+
+    <string name="list_user">Список пользователей</string>
+    <string name="add_user">Добавить пользователя</string>
+    <string name="select_helicopter">Выберите вертолет</string>
+    <string name="save">Сохранить</string>
+    <string name="earth">Земля</string>
+    <string name="air">Воздух</string>
+    <string name="date">Дата</string>
+    <string name="start">Запуск</string>
+    <string name="selection">Отбор</string>
+    <string name="generation">Ген. режим</string>
+    <string name="common_time">Общее время</string>
+    <string name="apply">Применить время к деталям и работам</string>
+    <string name="factory_number">Заводской номер</string>
+    <string name="name">Наименование</string>
+    <string name="group">Группа</string>
+    <string name="resource_global">Ресурс назначенный</string>
+    <string name="resource_global_current">Ресурс назначенный текущий</string>
+    <string name="resource_global_balance">Ресурс назначенный остаток</string>
+    <string name="resource_repair">Ресурс межремонтный</string>
+    <string name="resource_repair_current">Ресурс межремонтный текущий</string>
+    <string name="resource_repair_balance">Ресурс межремонтный остаток</string>
+    <string name="date_release">Дата выпуска</string>
+    <string name="service_time_y">Срок службы, г.</string>
+    <string name="date_change">Дата замены</string>
+    <string name="date_repair">Дата ремонта</string>
+    <string name="repair_period_y">Ремонтный период, г.</string>
+    <string name="date_next_repair">Дата следующего ремонта</string>
+    <string name="find">Найти</string>
+    <string name="сcoming_works">Приближающиеся работы</string>
+    <string name="detail_repair">Детали для обслуживания</string>
+    <string name="add_time">Добавить время</string>
+    <string name="resource">Ресурс, ч</string>
+    <string name="resource_current">Ресурс текущий, ч</string>
+    <string name="resource_balance">Ресурс остаток, ч</string>
+    <string name="period">Период, мес.</string>
+    <string name="date_work">Дата работ</string>
+    <string name="date_next">Дата следующих работ</string>
+    <string name="change_balance">До замены, ч</string>
+    <string name="repair_balance">До ремонта, ч</string>
+    <string name="add">Добавить</string>
+    <string name="air_h">Воздух, ч</string>
+    <string name="earth_h">Земля, ч</string>
+    <string name="balance_h">Осталось, ч</string>
+    <string name="next_work">След. обслуживание</string>
+    <string name="bort">борт</string>
+    <string name="enter_password">Введите пароль</string>
+
+    <string-array name="groups">
+        <item>Все</item>
+        <item>Main</item>
+        <item>Планер</item>
+        <item>Система управления</item>
+        <item>Система кондиционирования</item>
+        <item>Система пожаротушения</item>
+        <item>Топливная система</item>
+        <item>Гидравлическая система</item>
+        <item>Взлетно-посадочное устройство</item>
+        <item>Воздушная система</item>
+        <item>Пылезащитной устройство</item>
+        <item>Трансмиссия</item>
+        <item>Маслосистема</item>
+        <item>Бытовое оборудование</item>
+    </string-array>
+
+    <string-array name="months">
+        <item>Январь</item>
+        <item>Февраль</item>
+        <item>Март</item>
+        <item>Апрель</item>
+        <item>Май</item>
+        <item>Июнь</item>
+        <item>Июль</item>
+        <item>Август</item>
+        <item>Сентябрь</item>
+        <item>Октябрь</item>
+        <item>Ноябрь</item>
+        <item>Декабрь</item>
+    </string-array>
+
+    <string-array name="years">
+        <item>2022</item>
+        <item>2023</item>
+    </string-array>
+
+    <string-array name="math">
+        <item>+</item>
+        <item>-</item>
+    </string-array>
+</resources>

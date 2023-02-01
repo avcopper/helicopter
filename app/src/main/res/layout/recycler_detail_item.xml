@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="2dp"
+    android:background="@drawable/item_border" >
+
+    <TextView
+        android:id="@+id/recycler_detail_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:paddingTop="4dp"
+        android:paddingBottom="4dp"
+        android:paddingLeft="2dp"
+        android:paddingRight="2dp"
+        android:fontFamily="@font/montserrat"
+        android:textSize="12sp"
+        android:textColor="@android:color/black"
+        android:layout_weight="4" />
+
+    <TextView
+        android:id="@+id/recycler_detail_global_balance"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:paddingLeft="2dp"
+        android:paddingRight="2dp"
+        android:fontFamily="@font/montserrat"
+        android:textSize="12sp"
+        android:textColor="@android:color/black"
+        android:layout_weight="3" />
+
+    <TextView
+        android:id="@+id/recycler_detail_repair_balance"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:paddingLeft="2dp"
+        android:paddingRight="2dp"
+        android:fontFamily="@font/montserrat"
+        android:textSize="12sp"
+        android:textColor="@android:color/black"
+        android:layout_weight="3" />
+
+    <TextView
+        android:id="@+id/recycler_detail_global_next"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:paddingLeft="2dp"
+        android:paddingRight="2dp"
+        android:fontFamily="@font/montserrat"
+        android:textSize="12sp"
+        android:textColor="@android:color/black"
+        android:layout_weight="3" />
+
+    <TextView
+        android:id="@+id/recycler_detail_repair_next"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:paddingLeft="2dp"
+        android:paddingRight="2dp"
+        android:fontFamily="@font/montserrat"
+        android:textSize="12sp"
+        android:textColor="@android:color/black"
+        android:layout_weight="3" />
+
+</LinearLayout>

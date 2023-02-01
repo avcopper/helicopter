@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="10dp">
+
+    <Button
+        android:id="@+id/add_time"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/add_time"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingBottom="5dp" >
+
+        <Spinner
+            android:id="@+id/months"
+            android:entries="@array/months"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="4" />
+
+        <Spinner
+            android:id="@+id/years"
+            android:entries="@array/years"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="3" />
+
+        <Button
+            android:id="@+id/times_search"
+            android:layout_width="0dp"
+            android:layout_height="38dp"
+            android:layout_weight="3"
+            android:background="@drawable/buttons_main"
+            android:fontFamily="@font/montserrat"
+            android:text="@string/find" />
+    </LinearLayout>
+
+    <include
+        android:id="@+id/recycler_time"
+        layout="@layout/recycler_times" />
+
+</LinearLayout>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/action_search"
+        android:orderInCategory="100"
+        android:title="@string/action_search"
+        android:icon="@android:drawable/ic_menu_search"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/action_list"
+        android:orderInCategory="100"
+        android:title="Список деталей"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_work"
+        android:orderInCategory="100"
+        android:title="Список работ"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_time"
+        android:orderInCategory="100"
+        android:title="Рабочее время"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_select"
+        android:orderInCategory="100"
+        android:title="Сменить вертолет"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_settings"
+        android:orderInCategory="100"
+        android:title="Настройки"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_developer"
+        android:orderInCategory="100"
+        android:title="О разработчике"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_exit"
+        android:orderInCategory="100"
+        android:title="Выход"
+        app:showAsAction="never" />
+</menu>
