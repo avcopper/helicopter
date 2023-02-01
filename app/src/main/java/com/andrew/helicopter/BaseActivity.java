@@ -40,7 +40,7 @@ public class BaseActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         helicopter = new Helicopter();
         currentUser = (User) getIntent().getSerializableExtra("CURRENT_USER");
-        getBackUp();
+        //getBackUp();
     }
 
     @Override
