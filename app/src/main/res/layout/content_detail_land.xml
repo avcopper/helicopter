@@ -2,27 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:paddingLeft="5dp"
-    android:paddingRight="5dp" >
-
-    <TextView
-        android:id="@+id/header"
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:gravity="center"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="5dp"
-        android:fontFamily="@font/montserrat"
-        android:textSize="20sp"
-        android:textAlignment="center" />
-
-    <com.google.android.material.switchmaterial.SwitchMaterial
-        android:id="@+id/admin_edit"
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:text="Редактировать" />
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
@@ -30,56 +11,11 @@
         android:layout_marginBottom="5dp" >
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/hour"
+            android:id="@+id/land_global"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:enabled="false"
-            android:hint="@string/resource"
-            android:inputType="time"
-            android:textSize="14sp" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        app:errorEnabled="true"
-        android:layout_height="50dp"
-        android:layout_marginBottom="5dp" >
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/hour_current"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:hint="@string/resource_current"
-            android:inputType="time"
-            android:textSize="14sp" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginBottom="5dp" >
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/hour_balance"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:enabled="false"
-            android:hint="@string/resource_balance"
-            android:inputType="time"
-            android:textSize="14sp" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginBottom="5dp" >
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/month"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:enabled="false"
-            android:hint="@string/period"
+            android:hint="Посадки назначенные"
             android:inputType="numberDecimal"
             android:textSize="14sp" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -91,11 +27,11 @@
         android:layout_marginBottom="5dp" >
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/work_date"
+            android:id="@+id/land_global_current"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:hint="@string/date_work"
-            android:inputType="text"
+            android:hint="Посадки назначенные текущие"
+            android:inputType="numberDecimal"
             android:textSize="14sp" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -105,27 +41,57 @@
         android:layout_marginBottom="5dp" >
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/work_next"
+            android:id="@+id/land_global_balance"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:enabled="false"
-            android:hint="@string/date_next"
-            android:inputType="text"
+            android:hint="Посадки назначенные остаток"
+            android:inputType="numberDecimal"
             android:textSize="14sp" />
     </com.google.android.material.textfield.TextInputLayout>
 
-    <TextView
-        android:id="@+id/sort"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:visibility="invisible" />
-
-    <android.widget.Button
-        android:id="@+id/time_save"
+    <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:background="@drawable/buttons_main"
-        android:textColor="@color/white"
-        android:text="@string/save" />
+        android:layout_marginBottom="5dp" >
 
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/land_repair"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:enabled="false"
+            android:hint="Посадки межремонтные"
+            android:inputType="numberDecimal"
+            android:textSize="14sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        app:errorEnabled="true"
+        android:layout_height="50dp"
+        android:layout_marginBottom="5dp" >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/land_repair_current"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="Посадки межремонтные текущие"
+            android:inputType="numberDecimal"
+            android:textSize="14sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginBottom="5dp" >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/land_repair_balance"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:enabled="false"
+            android:hint="Посадки межремонтные остаток"
+            android:inputType="numberDecimal"
+            android:textSize="14sp" />
+    </com.google.android.material.textfield.TextInputLayout>
 </LinearLayout>

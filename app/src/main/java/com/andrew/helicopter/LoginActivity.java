@@ -5,19 +5,31 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.andrew.helicopter.Models.Detail;
 import com.andrew.helicopter.Models.User;
 import com.andrew.helicopter.System.DataHandler;
+import com.andrew.helicopter.System.Firebase;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
+
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.Objects;
 
 public class LoginActivity extends AppCompatActivity {
@@ -36,6 +48,29 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+//        db.collection("165")
+//                .get()
+//                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+//                    @Override
+//                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+//                        Log.d("FB - TASK", String.valueOf(task.isSuccessful()));
+//
+//                        if (task.isSuccessful()) {
+//                            Firebase fb = new Firebase("template");
+//                            int i = 1;
+//                            for (QueryDocumentSnapshot document : task.getResult()) {
+//                                Detail item = document.toObject(Detail.class);
+//                                Log.d("FB - " + i, item.toString());
+//
+//                                fb.setDocument(item.getId());
+//                                fb.saveDocument(item);
+//
+//                                i++;
+//                            }
+//                        }
+//                    }
+//                });
 
         init();
         setListeners();

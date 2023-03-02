@@ -1,5 +1,7 @@
 package com.andrew.helicopter.Models;
 
+import com.google.gson.Gson;
+
 import java.io.Serializable;
 import java.util.Objects;
 
@@ -70,11 +72,14 @@ public class User implements Serializable {
      * @return
      */
     public String toJson() {
-        return "{" +
-                "\"login\": \"" + login + "\"," +
-                "\"email\": \"" + email + "\"," +
-                "\"password\": \"" + password + "\"," +
-                "\"role\": \"" + role + "\"" +
-                "}";
+        Gson gson = new Gson();
+        return gson.toJson(this);
+
+//        return "{" +
+//                "\"login\": \"" + login + "\"," +
+//                "\"email\": \"" + email + "\"," +
+//                "\"password\": \"" + password + "\"," +
+//                "\"role\": \"" + role + "\"" +
+//                "}";
     }
 }

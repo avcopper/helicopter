@@ -1,0 +1,367 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginBottom="5dp" >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/start_global"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:enabled="false"
+            android:hint="Запуск назначенный"
+            android:inputType="numberDecimal"
+            android:textSize="14sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        app:errorEnabled="true"
+        android:layout_height="50dp"
+        android:layout_marginBottom="5dp" >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/start_global_current"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="Запуск назначенный текущий"
+            android:inputType="numberDecimal"
+            android:textSize="14sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginBottom="5dp" >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/start_global_balance"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:enabled="false"
+            android:hint="Запуск назначенный остаток"
+            android:inputType="numberDecimal"
+            android:textSize="14sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginBottom="5dp" >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/start_repair"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:enabled="false"
+            android:hint="Запуск межремонтный"
+            android:inputType="numberDecimal"
+            android:textSize="14sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        app:errorEnabled="true"
+        android:layout_height="50dp"
+        android:layout_marginBottom="5dp" >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/start_repair_current"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="Запуск межремонтный текущий"
+            android:inputType="numberDecimal"
+            android:textSize="14sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginBottom="5dp" >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/start_repair_balance"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:enabled="false"
+            android:hint="Запуск межремонтный остаток"
+            android:inputType="numberDecimal"
+            android:textSize="14sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        app:errorEnabled="true"
+        android:layout_height="50dp"
+        android:layout_marginBottom="5dp" >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/sel_global"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:enabled="false"
+            android:hint="Отбор назначенный"
+            android:inputType="numberDecimal"
+            android:textSize="14sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginBottom="5dp" >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/sel_global_current"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="Отбор назначенный текущий"
+            android:inputType="numberDecimal"
+            android:textSize="14sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginBottom="5dp" >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/sel_global_balance"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:enabled="false"
+            android:hint="Отбор назначенный остаток"
+            android:inputType="numberDecimal"
+            android:textSize="14sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        app:errorEnabled="true"
+        android:layout_height="50dp"
+        android:layout_marginBottom="5dp" >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/sel_repair"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:enabled="false"
+            android:hint="Отбор межремонтный"
+            android:inputType="numberDecimal"
+            android:textSize="14sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginBottom="5dp" >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/sel_repair_current"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="Отбор межремонтный текущий"
+            android:inputType="numberDecimal"
+            android:textSize="14sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginBottom="5dp" >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/sel_repair_balance"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:enabled="false"
+            android:hint="Отбор межремонтный остаток"
+            android:inputType="numberDecimal"
+            android:textSize="14sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        app:errorEnabled="true"
+        android:layout_height="50dp"
+        android:layout_marginBottom="5dp" >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/gen_global"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:enabled="false"
+            android:hint="Ген. режим назначенный"
+            android:inputType="numberDecimal"
+            android:textSize="14sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginBottom="5dp" >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/gen_global_current"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="Ген. режим назначенный текущий"
+            android:inputType="numberDecimal"
+            android:textSize="14sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginBottom="5dp" >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/gen_global_balance"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:enabled="false"
+            android:hint="Ген. режим назначенный остаток"
+            android:inputType="numberDecimal"
+            android:textSize="14sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        app:errorEnabled="true"
+        android:layout_height="50dp"
+        android:layout_marginBottom="5dp" >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/gen_repair"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:enabled="false"
+            android:hint="Ген. режим межремонтный"
+            android:inputType="numberDecimal"
+            android:textSize="14sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginBottom="5dp" >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/gen_repair_current"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="Ген. режим межремонтный текущий"
+            android:inputType="numberDecimal"
+            android:textSize="14sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginBottom="5dp" >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/gen_repair_balance"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:enabled="false"
+            android:hint="Ген. режим межремонтный остаток"
+            android:inputType="numberDecimal"
+            android:textSize="14sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        app:errorEnabled="true"
+        android:layout_height="50dp"
+        android:layout_marginBottom="5dp" >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/common_global"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:enabled="false"
+            android:hint="Общий назначенный"
+            android:inputType="numberDecimal"
+            android:textSize="14sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginBottom="5dp" >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/common_global_current"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="Общий назначенный текущий"
+            android:inputType="numberDecimal"
+            android:textSize="14sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginBottom="5dp" >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/common_global_balance"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:enabled="false"
+            android:hint="Общий назначенный остаток"
+            android:inputType="numberDecimal"
+            android:textSize="14sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        app:errorEnabled="true"
+        android:layout_height="50dp"
+        android:layout_marginBottom="5dp" >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/common_repair"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:enabled="false"
+            android:hint="Общий межремонтный"
+            android:inputType="numberDecimal"
+            android:textSize="14sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginBottom="5dp" >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/common_repair_current"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="Общий межремонтный текущий"
+            android:inputType="numberDecimal"
+            android:textSize="14sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginBottom="5dp" >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/common_repair_balance"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:enabled="false"
+            android:hint="Общий межремонтный остаток"
+            android:inputType="numberDecimal"
+            android:textSize="14sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+</LinearLayout>

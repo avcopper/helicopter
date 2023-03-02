@@ -12,6 +12,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.DatePicker;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -21,6 +22,7 @@ import com.andrew.helicopter.Models.Work;
 import com.andrew.helicopter.System.DataHandler;
 import com.andrew.helicopter.System.Firebase;
 import com.google.android.material.snackbar.Snackbar;
+import com.google.android.material.switchmaterial.SwitchMaterial;
 import com.google.android.material.textfield.TextInputEditText;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -34,6 +36,7 @@ public class WorkActivity extends BaseActivity {
     Work work;
     Calendar calendar = Calendar.getInstance();
 
+    SwitchMaterial adminEdit;
     TextView header;
     TextInputEditText hourContainer, hourCurrentContainer, hourBalanceContainer;
     TextInputEditText monthContainer, workDateContainer, workNextContainer;
@@ -69,6 +72,7 @@ public class WorkActivity extends BaseActivity {
 
             init();
             setText();
+            setVisibility();
             setListeners();
         }
     }
@@ -87,6 +91,7 @@ public class WorkActivity extends BaseActivity {
      * Инициализация элементов
      */
     private void init() {
+        adminEdit = findViewById(R.id.admin_edit);
         header = findViewById(R.id.header);
         hourContainer = findViewById(R.id.hour);
         hourCurrentContainer = findViewById(R.id.hour_current);
@@ -114,10 +119,28 @@ public class WorkActivity extends BaseActivity {
         }
     }
 
+    private void setVisibility() {
+        if (!currentUser.isAdmin()) {
+            adminEdit.setVisibility(View.INVISIBLE);
+            adminEdit.setHeight(0);
+        }
+    }
+
     /**
      * Инициализация обработчиков
      */
     private void setListeners() {
+        showHelperWindow();
+        setHourChangeListener();
+        setDateChangeListener();
+
+        // переключатель редактирования полей
+        adminEdit.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                setEditable(isChecked);
+            }
+        });
         // сохранение данных
         workSave.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -147,6 +170,12 @@ public class WorkActivity extends BaseActivity {
                 }
             }
         });
+    }
+
+    /**
+     * Показ вспомогательного окна для ввода даты, времени...
+     */
+    private void showHelperWindow() {
         // показ календаря для ввода даты
         workDateContainer.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -166,6 +195,23 @@ public class WorkActivity extends BaseActivity {
             }
         });
         // показ часов для ввода времени
+        hourContainer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                TimePickerDialog.OnTimeSetListener timeListener = new TimePickerDialog.OnTimeSetListener() {
+                    @Override
+                    public void onTimeSet(TimePicker timePicker, int hour, int minute) {
+                        calendar.set(Calendar.HOUR_OF_DAY, hour);
+                        calendar.set(Calendar.MINUTE, minute);
+                        setTime(hourContainer);
+                    }
+                };
+                TimePickerDialog timeDialog = new TimePickerDialog(WorkActivity.this, timeListener,
+                        calendar.get(Calendar.HOUR_OF_DAY), calendar.get(Calendar.MINUTE), true);
+                timeDialog.show();
+            }
+        });
+        // показ часов для ввода времени
         hourCurrentContainer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -182,6 +228,31 @@ public class WorkActivity extends BaseActivity {
                 timeDialog.show();
             }
         });
+    }
+
+    /**
+     * Пересчет остаток при редактировании полей со временем ремонта
+     */
+    private void setHourChangeListener() {
+        // пересчет остатка часов до ремонта
+        hourContainer.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {}
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {}
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                String userData = editable.toString();
+                if (DataHandler.isValidTime(userData)) {
+                    hourContainer.setError(null);
+                    int hour = DataHandler.getMinutesFromTimeFormat(userData);
+                    int current = DataHandler.getMinutesFromTimeFormat(hourCurrentContainer.getText().toString());
+                    hourBalanceContainer.setText(DataHandler.simpleFormatDateFromMinutes(hour - current));
+                } else hourContainer.setError("Проверьте введенные данные");
+            }
+        });
         // пересчет остатка часов до ремонта
         hourCurrentContainer.addTextChangedListener(new TextWatcher() {
             @Override
@@ -195,10 +266,35 @@ public class WorkActivity extends BaseActivity {
                 String userData = editable.toString();
                 if (DataHandler.isValidTime(userData)) {
                     hourCurrentContainer.setError(null);
+                    int hour = DataHandler.getMinutesFromTimeFormat(hourContainer.getText().toString());
                     int current = DataHandler.getMinutesFromTimeFormat(userData);
-                    int hour = work.getResourceHour();
                     hourBalanceContainer.setText(DataHandler.simpleFormatDateFromMinutes(hour - current));
                 } else hourCurrentContainer.setError("Проверьте введенные данные");
+            }
+        });
+    }
+
+    /**
+     * Пересчет остаток при редактировании полей с датой ремонта
+     */
+    private void setDateChangeListener() {
+        // пересчет даты следующего ремонта
+        monthContainer.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {}
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {}
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                String userData = editable.toString();
+                if (DataHandler.isValidNumber(userData)) {
+                    monthContainer.setError(null);
+                    long monthResource = DataHandler.getUnixTimestampFromMoths(Integer.parseInt(userData));
+                    long workDate = DataHandler.getUnixTimestampFromDate(workDateContainer.getText().toString());
+                    workNextContainer.setText(DataHandler.getDateFromUnixTimestamp(workDate + monthResource));
+                } else monthContainer.setError("Проверьте введенные данные");
             }
         });
         // пересчет даты следующего ремонта
@@ -215,11 +311,20 @@ public class WorkActivity extends BaseActivity {
                 if (DataHandler.isValidDate(userData)) {
                     workDateContainer.setError(null);
                     long workDate = DataHandler.getUnixTimestampFromDate(userData);
-                    long monthResource = work.getResourceMonth();
+                    long monthResource = DataHandler.getUnixTimestampFromMoths(Integer.parseInt(monthContainer.getText().toString()));
                     workNextContainer.setText(DataHandler.getDateFromUnixTimestamp(workDate + monthResource));
                 } else workDateContainer.setError("Проверьте введенные данные");
             }
         });
+    }
+
+    /**
+     * Показ переключателя редактирования закрытых полей админу
+     * @param isEditable - флаг
+     */
+    private void setEditable(boolean isEditable) {
+        hourContainer.setEnabled(isEditable);
+        monthContainer.setEnabled(isEditable);
     }
 
     /**

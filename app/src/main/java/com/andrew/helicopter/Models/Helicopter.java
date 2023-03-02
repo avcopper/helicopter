@@ -2,6 +2,8 @@ package com.andrew.helicopter.Models;
 
 import androidx.annotation.NonNull;
 
+import com.google.gson.Gson;
+
 import java.io.Serializable;
 
 public class Helicopter implements Serializable {
@@ -34,6 +36,9 @@ public class Helicopter implements Serializable {
      * @return
      */
     public String toJson() {
-        return "{\"number\": \"" + number + "\"}";
+        Gson gson = new Gson();
+        return gson.toJson(this);
+
+//        return "{\"number\": \"" + number + "\"}";
     }
 }

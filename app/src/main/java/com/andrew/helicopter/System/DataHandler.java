@@ -189,7 +189,7 @@ public class DataHandler {
      */
     public static boolean isValidDate(String[] data) {
         for (String item : data)
-            if (!isValidTime(item)) return false;
+            if (!isValidDate(item)) return false;
 
         return true;
     }

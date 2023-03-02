@@ -2,6 +2,8 @@ package com.andrew.helicopter.Models;
 
 import androidx.annotation.NonNull;
 
+import com.google.gson.Gson;
+
 public class Group {
     private String name; // название группы
 
@@ -32,6 +34,9 @@ public class Group {
      * @return
      */
     public String toJson() {
-        return "{\"name\": \"" + name + "\"}";
+        Gson gson = new Gson();
+        return gson.toJson(this);
+
+//        return "{\"name\": \"" + name + "\"}";
     }
 }

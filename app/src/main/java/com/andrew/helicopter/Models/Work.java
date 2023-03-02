@@ -2,6 +2,8 @@ package com.andrew.helicopter.Models;
 
 import androidx.annotation.NonNull;
 
+import com.google.gson.Gson;
+
 import java.io.Serializable;
 
 public class Work implements Serializable {
@@ -117,15 +119,18 @@ public class Work implements Serializable {
      * @return
      */
     public String toJson() {
-        return "{" +
-                "\"name\": \"" + name.replace("\\", "\\\\") + "\"," +
-                "\"resourceHour\": " + resourceHour + "," +
-                "\"resourceHourCurrent\": " + resourceHourCurrent + "," +
-                "\"resourceHourBalance\": " + resourceHourBalance + "," +
-                "\"resourceMonth\": " + resourceMonth + "," +
-                "\"workDate\": " + workDate + "," +
-                "\"workDateNext\": " + workDateNext + "," +
-                "\"sort\": " + sort +
-                "}";
+        Gson gson = new Gson();
+        return gson.toJson(this);
+
+//        return "{" +
+//                "\"name\": \"" + name.replace("\\", "\\\\") + "\"," +
+//                "\"resourceHour\": " + resourceHour + "," +
+//                "\"resourceHourCurrent\": " + resourceHourCurrent + "," +
+//                "\"resourceHourBalance\": " + resourceHourBalance + "," +
+//                "\"resourceMonth\": " + resourceMonth + "," +
+//                "\"workDate\": " + workDate + "," +
+//                "\"workDateNext\": " + workDateNext + "," +
+//                "\"sort\": " + sort +
+//                "}";
     }
 }

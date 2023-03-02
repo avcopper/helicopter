@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginBottom="5dp" >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/resource_global"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:enabled="false"
+            android:hint="@string/resource_global"
+            android:inputType="time"
+            android:textSize="14sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        app:errorEnabled="true"
+        android:layout_height="50dp"
+        android:layout_marginBottom="5dp" >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/resource_global_current"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="@string/resource_global_current"
+            android:inputType="time"
+            android:textSize="14sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginBottom="5dp" >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/resource_global_balance"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:enabled="false"
+            android:hint="@string/resource_global_balance"
+            android:inputType="time"
+            android:textSize="14sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginBottom="5dp" >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/resource_repair"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:enabled="false"
+            android:hint="@string/resource_repair"
+            android:inputType="time"
+            android:textSize="14sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        app:errorEnabled="true"
+        android:layout_height="50dp"
+        android:layout_marginBottom="5dp" >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/resource_repair_current"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="@string/resource_repair_current"
+            android:inputType="time"
+            android:textSize="14sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginBottom="5dp" >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/resource_repair_balance"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:enabled="false"
+            android:hint="@string/resource_repair_balance"
+            android:inputType="time"
+            android:textSize="14sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        app:errorEnabled="true"
+        android:layout_height="50dp"
+        android:layout_marginBottom="5dp" >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/resource_global_date"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="@string/date_release"
+            android:inputType="text"
+            android:textSize="14sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginBottom="5dp" >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/resource_global_period"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="@string/service_time_y"
+            android:inputType="numberDecimal"
+            android:textSize="14sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginBottom="5dp" >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/resource_global_next"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:enabled="false"
+            android:hint="@string/date_change"
+            android:inputType="text"
+            android:textSize="14sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        app:errorEnabled="true"
+        android:layout_height="50dp"
+        android:layout_marginBottom="5dp" >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/resource_repair_date"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="@string/date_repair"
+            android:inputType="text"
+            android:textSize="14sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginBottom="5dp" >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/resource_repair_period"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="@string/repair_period_y"
+            android:inputType="numberDecimal"
+            android:textSize="14sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginBottom="5dp" >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/resource_repair_next"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:enabled="false"
+            android:hint="@string/date_next_repair"
+            android:inputType="text"
+            android:textSize="14sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+</LinearLayout>

@@ -1,6 +1,9 @@
 package com.andrew.helicopter.Models;
 
 import androidx.annotation.NonNull;
+
+import com.google.gson.Gson;
+
 import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -113,14 +116,17 @@ public class Time implements Serializable {
      * @return
      */
     public String toJson() {
-        return "{" +
-                "\"date\": \"" + date + "\"," +
-                "\"air\": " + air + "," +
-                "\"earth\": " + earth + "," +
-                "\"start\": " + start + "," +
-                "\"sel\": " + sel + "," +
-                "\"gen\": " + gen + "," +
-                "\"common\": " + common +
-                "}";
+        Gson gson = new Gson();
+        return gson.toJson(this);
+
+//        return "{" +
+//                "\"date\": \"" + date + "\"," +
+//                "\"air\": " + air + "," +
+//                "\"earth\": " + earth + "," +
+//                "\"start\": " + start + "," +
+//                "\"sel\": " + sel + "," +
+//                "\"gen\": " + gen + "," +
+//                "\"common\": " + common +
+//                "}";
     }
 }
