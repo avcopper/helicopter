@@ -10,15 +10,23 @@ public class User implements Serializable {
     private String email;
     private String password;
     private String role;
+    private boolean isVisibleSectionDetail;
+    private boolean isVisibleSectionWorks;
+    private boolean isVisibleSectionTimes;
 
     public User() {
     }
 
-    public User(String login, String email, String password) {
+    public User(String login, String email, String password,
+                boolean isVisibleSectionDetail, boolean isVisibleSectionWorks, boolean isVisibleSectionTimes)
+    {
         this.login = login;
         this.email = email;
         this.password = password;
         this.role = "users";
+        this.isVisibleSectionDetail = isVisibleSectionDetail;
+        this.isVisibleSectionWorks = isVisibleSectionWorks;
+        this.isVisibleSectionTimes = isVisibleSectionTimes;
     }
 
     public boolean isAdmin() {
@@ -57,6 +65,30 @@ public class User implements Serializable {
         this.role = role;
     }
 
+    public boolean isVisibleSectionDetail() {
+        return isVisibleSectionDetail;
+    }
+
+    public void setVisibleSectionDetail(boolean visibleSectionDetail) {
+        isVisibleSectionDetail = visibleSectionDetail;
+    }
+
+    public boolean isVisibleSectionWorks() {
+        return isVisibleSectionWorks;
+    }
+
+    public void setVisibleSectionWorks(boolean visibleSectionWorks) {
+        isVisibleSectionWorks = visibleSectionWorks;
+    }
+
+    public boolean isVisibleSectionTimes() {
+        return isVisibleSectionTimes;
+    }
+
+    public void setVisibleSectionTimes(boolean visibleSectionTimes) {
+        isVisibleSectionTimes = visibleSectionTimes;
+    }
+
     @Override
     public String toString() {
         return "User{" +
@@ -64,6 +96,9 @@ public class User implements Serializable {
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
                 ", role='" + role + '\'' +
+                ", isVisibleSectionDetail=" + isVisibleSectionDetail +
+                ", isVisibleSectionWorks=" + isVisibleSectionWorks +
+                ", isVisibleSectionTimes=" + isVisibleSectionTimes +
                 '}';
     }
 

@@ -54,8 +54,36 @@
         android:id="@+id/is_admin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="15dp"
+        android:layout_marginBottom="10dp"
         android:text="Админ" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:text="Доступ к разделам" />
+
+    <View android:layout_height="1dp"
+        android:layout_width="match_parent"
+        android:background="@color/gray"/>
+
+    <com.google.android.material.switchmaterial.SwitchMaterial
+        android:id="@+id/is_visible_section_details"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Список деталей" />
+
+    <com.google.android.material.switchmaterial.SwitchMaterial
+        android:id="@+id/is_visible_section_works"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Список работ" />
+
+    <com.google.android.material.switchmaterial.SwitchMaterial
+        android:id="@+id/is_visible_section_times"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Рабочее время" />
 
 <!--    <android.widget.Button-->
 <!--        android:id="@+id/user_save"-->

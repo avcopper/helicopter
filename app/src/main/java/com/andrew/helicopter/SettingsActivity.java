@@ -134,7 +134,8 @@ public class SettingsActivity extends BaseActivity {
                 String password = passwordField.getText().toString();
 
                 if (DataHandler.isValidEmail(email) && DataHandler.isValidNumber(password)) {
-                    User user = new User(login, email, password);
+                    User user = new User(login, email, password,
+                            currentUser.isVisibleSectionDetail(), currentUser.isVisibleSectionWorks(), currentUser.isVisibleSectionTimes());
                     if (role.equals("admin")) user.setRole(role);
 
                     Firebase fb = new Firebase(TABLE, login);

@@ -46,8 +46,14 @@ public class BaseActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(currentUser != null && currentUser.isAdmin() ? R.menu.admin : R.menu.main, menu);
+
+        if (!currentUser.isVisibleSectionDetail()) menu.findItem(R.id.action_list).setVisible(false);
+        if (!currentUser.isVisibleSectionWorks()) menu.findItem(R.id.action_work).setVisible(false);
+        if (!currentUser.isVisibleSectionTimes()) menu.findItem(R.id.action_time).setVisible(false);
+
         return true;
     }
+
     /**
      * Обработка клика по пунктам главного меню
      * @param item - выбранный пункт

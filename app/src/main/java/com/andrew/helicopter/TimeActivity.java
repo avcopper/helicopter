@@ -51,8 +51,8 @@ public class TimeActivity extends BaseActivity {
     TextInputEditText dateContainer;
     TextInputEditText airContainer, earthContainer;
     Spinner airSpinner, earthSpinner;
-    SwitchMaterial airSwitch, earthSwitch;
-    TextInputEditText startContainer, selContainer, genContainer, commonContainer;
+    SwitchMaterial apply;
+    TextInputEditText startContainer, selContainer, genContainer, commonContainer, landingContainer;
     Button timeSave;
 
     @Override
@@ -103,17 +103,17 @@ public class TimeActivity extends BaseActivity {
      */
     private void init() {
         header = findViewById(R.id.header);
+        apply = findViewById(R.id.apply);
         dateContainer = findViewById(R.id.date);
         airContainer = findViewById(R.id.air);
         airSpinner = findViewById(R.id.air_spinner);
-        airSwitch = findViewById(R.id.air_switch);
         earthContainer = findViewById(R.id.earth);
         earthSpinner = findViewById(R.id.earth_spinner);
-        earthSwitch = findViewById(R.id.earth_switch);
         startContainer = findViewById(R.id.start);
         selContainer = findViewById(R.id.sel);
         genContainer = findViewById(R.id.gen);
         commonContainer = findViewById(R.id.common);
+        landingContainer = findViewById(R.id.landing);
         timeSave = findViewById(R.id.time_save);
     }
 
@@ -134,6 +134,7 @@ public class TimeActivity extends BaseActivity {
             selContainer.setText(String.valueOf(time.getSel()));
             genContainer.setText(DataHandler.simpleFormatDateFromMinutes(time.getGen()));
             commonContainer.setText(DataHandler.simpleFormatDateFromMinutes(time.getCommon()));
+            landingContainer.setText(String.valueOf(time.getLand()));
         }
     }
 
@@ -145,19 +146,20 @@ public class TimeActivity extends BaseActivity {
         timeSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                boolean applyData = apply.isChecked();
                 String date = dateContainer.getText().toString();
                 String air = airContainer.getText().toString();
                 String airSign = airSpinner.getSelectedItem().toString();
-                boolean airApply = airSwitch.isChecked();
                 String earth = earthContainer.getText().toString();
                 String earthSign = earthSpinner.getSelectedItem().toString();
-                boolean earthApply = earthSwitch.isChecked();
                 String start = startContainer.getText().toString();
                 String sel = selContainer.getText().toString();
                 String gen = genContainer.getText().toString();
                 String common = commonContainer.getText().toString();
+                String land = landingContainer.getText().toString();
+
                 String[] timeArr = {air, earth, gen, common};
-                String[] numArr = {start, sel};
+                String[] numArr = {start, sel, land};
 
                 if (DataHandler.isValidTime(timeArr) && DataHandler.isValidDate(date) && DataHandler.isValidNumber(numArr)) {
                     int air_value = DataHandler.getMinutesFromTimeFormat(air);
@@ -169,15 +171,24 @@ public class TimeActivity extends BaseActivity {
                             Integer.parseInt(start),
                             Integer.parseInt(sel),
                             DataHandler.getMinutesFromTimeFormat(gen),
-                            DataHandler.getMinutesFromTimeFormat(common)
+                            DataHandler.getMinutesFromTimeFormat(common),
+                            Integer.parseInt(land)
                     );
                     Firebase fb = new Firebase("times/" + helicopter.getNumber() + "/" + getMonth(date), tm.getDate());
-                    showAlertDialog(fb, tm, airApply, airSign, earthApply, earthSign);
+                    showAlertDialog(fb, tm, airSign, earthSign, applyData);
                 } else {
                     Snackbar.make(toolbar,"Проверьте введенные данные", Snackbar.LENGTH_LONG).show();
                 }
             }
         });
+        showHelperWindow();
+        setDataHandlerListeners();
+    }
+
+    /**
+     * Показ вспомогательных окон
+     */
+    private void showHelperWindow() {
         // показ календаря для ввода даты
         dateContainer.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -264,6 +275,12 @@ public class TimeActivity extends BaseActivity {
                 timeDialog.show();
             }
         });
+    }
+
+    /**
+     * Проверка введенных данных
+     */
+    private void setDataHandlerListeners() {
         // установка даты в заголовке при изменении ее в поле ввода и проверка ошибок в дате
         dateContainer.addTextChangedListener(new TextWatcher() {
             @Override
@@ -379,12 +396,11 @@ public class TimeActivity extends BaseActivity {
      * Диалог для подтверждения сохранения данных
      * @param fb - объект БД
      * @param tm - время
-     * @param airApply - применить время воздуха к ресурсу всех деталей/работ
      * @param airSign - знак операции времени воздуха (прибавление/вычитание)
-     * @param earthApply - применить время земли к ресурсу всех деталей/работ
      * @param earthSign - знак операции времени земли (прибавление/вычитание)
+     * @param applyData - применить время к ресурсу всех деталей/работ
      */
-    private void showAlertDialog(Firebase fb, Time tm, boolean airApply, String airSign, boolean earthApply, String earthSign) {
+    private void showAlertDialog(Firebase fb, Time tm, String airSign, String earthSign, boolean applyData) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Вы уверены?");
         builder.setMessage("Вы уверены, что хотите сохранить данные?");
@@ -392,9 +408,17 @@ public class TimeActivity extends BaseActivity {
             public void onClick(DialogInterface dialog, int id) {
                 fb.saveDocument(tm);
 
-                if (airApply || earthApply) {
-                    setTimeToDetails(tm, airApply, airSign, earthApply, earthSign);
-                    setTimeToWorks(tm, airApply, airSign, earthApply, earthSign);
+                if (applyData) {
+                    setTimeToDetails(tm, airSign, earthSign);
+                    setTimeToWorks(tm, airSign, earthSign);
+                } else {
+                    Snackbar.make(toolbar ,"Данные сохранены", Snackbar.LENGTH_INDEFINITE)
+                        .setAction("ОК" , new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                finish();;
+                            }
+                        }).show();
                 }
             }
         });
@@ -411,36 +435,104 @@ public class TimeActivity extends BaseActivity {
     /**
      * Добавление/вычитание времени к ресурсу деталей
      * @param tm - время
-     * @param airApply - применить время воздуха к ресурсу всех деталей
      * @param airSign - знак операции времени воздуха (прибавление/вычитание)
-     * @param earthApply - применить время земли к ресурсу всех деталей
      * @param earthSign - знак операции времени земли (прибавление/вычитание)
      */
-    private void setTimeToDetails(Time tm, boolean airApply, String airSign, boolean earthApply, String earthSign) {
-        int time = 0;
-        if (airApply) time += (Objects.equals(airSign, "-") ? (tm.getAir() * -1) : tm.getAir());
-        if (earthApply) time += ((Objects.equals(earthSign, "-") ? (tm.getEarth() * -1) : tm.getEarth()) / 5);
+    private void setTimeToDetails(Time tm, String airSign, String earthSign) {
 
-        int finalTime = time;
         db.collection(helicopter.getNumber())
             .get()
             .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                 @Override
                 public void onComplete(@NonNull Task<QuerySnapshot> task) {
                     if (task.isSuccessful()) {
+                        int time = 0;
+                        time += (Objects.equals(airSign, "-") ? (tm.getAir() * -1) : tm.getAir());
+                        time += ((Objects.equals(earthSign, "-") ? (tm.getEarth() * -1) : tm.getEarth()) / 5);
+
+                        int start = tm.getStart();
+                        int sel = tm.getSel();
+                        int gen = tm.getGen();
+                        int common = tm.getCommon();
+                        int land = tm.getLand();
+
                         for (QueryDocumentSnapshot document : task.getResult()) {
                             Detail item = document.toObject(Detail.class);
 
-                            if (finalTime != 0) {
-                                item.setResourceGlobalCurrent(item.getResourceGlobalCurrent() + finalTime);
-                                item.setResourceGlobalBalance(item.getResourceGlobal() - item.getResourceGlobalCurrent());
+                            if (time != 0) {
+                                if (item.getResourceGlobal() != 0) {
+                                    item.setResourceGlobalCurrent(item.getResourceGlobalCurrent() + time);
+                                    item.setResourceGlobalBalance(item.getResourceGlobal() - item.getResourceGlobalCurrent());
+                                }
 
-                                item.setResourceRepairCurrent(item.getResourceRepairCurrent() + finalTime);
-                                item.setResourceRepairBalance(item.getResourceRepair() - item.getResourceRepairCurrent());
-
-                                Firebase fb = new Firebase(helicopter.getNumber(), item.getId());
-                                fb.saveDocument(item);
+                                if (item.getResourceRepair() != 0) {
+                                    item.setResourceRepairCurrent(item.getResourceRepairCurrent() + time);
+                                    item.setResourceRepairBalance(item.getResourceRepair() - item.getResourceRepairCurrent());
+                                }
                             }
+
+                            if (start != 0) {
+                                if (item.getStartGlobal() != 0) {
+                                    item.setStartGlobalCurrent(item.getStartGlobalCurrent() + start);
+                                    item.setStartGlobalBalance(item.getStartGlobal() - item.getStartGlobalCurrent());
+                                }
+
+                                if (item.getStartRepair() != 0) {
+                                    item.setStartRepairCurrent(item.getStartRepairCurrent() + start);
+                                    item.setStartRepairBalance(item.getStartRepair() - item.getStartRepairCurrent());
+                                }
+                            }
+
+                            if (sel != 0) {
+                                if (item.getSelGlobal() != 0) {
+                                    item.setSelGlobalCurrent(item.getSelGlobalCurrent() + sel);
+                                    item.setSelGlobalBalance(item.getSelGlobal() - item.getSelGlobalCurrent());
+                                }
+
+                                if (item.getSelRepair() != 0) {
+                                    item.setSelRepairCurrent(item.getSelRepairCurrent() + sel);
+                                    item.setSelRepairBalance(item.getSelRepair() - item.getSelRepairCurrent());
+                                }
+                            }
+
+                            if (gen != 0) {
+                                if (item.getGenGlobal() != 0) {
+                                    item.setGenGlobalCurrent(item.getGenGlobalCurrent() + gen);
+                                    item.setGenGlobalBalance(item.getGenGlobal() - item.getGenGlobalCurrent());
+                                }
+
+                                if (item.getGenRepair() != 0) {
+                                    item.setGenRepairCurrent(item.getGenRepairCurrent() + gen);
+                                    item.setGenRepairBalance(item.getGenRepair() - item.getGenRepairCurrent());
+                                }
+                            }
+
+                            if (common != 0) {
+                                if (item.getCommonGlobal() != 0) {
+                                    item.setCommonGlobalCurrent(item.getCommonGlobalCurrent() + common);
+                                    item.setCommonGlobalBalance(item.getCommonGlobal() - item.getCommonGlobalCurrent());
+                                }
+
+                                if (item.getCommonRepair() != 0) {
+                                    item.setCommonRepairCurrent(item.getCommonRepairCurrent() + common);
+                                    item.setCommonRepairBalance(item.getCommonRepair() - item.getCommonRepairCurrent());
+                                }
+                            }
+
+                            if (land != 0) {
+                                if (item.getLandGlobal() != 0) {
+                                    item.setLandGlobalCurrent(item.getLandGlobalCurrent() + land);
+                                    item.setLandGlobalBalance(item.getLandGlobal() - item.getLandGlobalCurrent());
+                                }
+
+                                if (item.getLandRepair() != 0) {
+                                    item.setLandRepairCurrent(item.getLandRepairCurrent() + land);
+                                    item.setLandRepairBalance(item.getLandRepair() - item.getLandRepairCurrent());
+                                }
+                            }
+
+                            Firebase fb = new Firebase(helicopter.getNumber(), item.getId());
+                            fb.saveDocument(item);
                         }
                     } else {
                         Snackbar.make(toolbar , "Не удалось получить список деталей: " + task.getException(), Snackbar.LENGTH_LONG)
@@ -453,28 +545,25 @@ public class TimeActivity extends BaseActivity {
     /**
      * Добавление/вычитание времени к ресурсу работ
      * @param tm - время
-     * @param airApply - применить время воздуха к ресурсу всех работ
      * @param airSign - знак операции времени воздуха (прибавление/вычитание)
-     * @param earthApply - применить время земли к ресурсу всех работ
      * @param earthSign - знак операции времени земли (прибавление/вычитание)
      */
-    private void setTimeToWorks(Time tm, boolean airApply, String airSign, boolean earthApply, String earthSign) {
-        int time = 0;
-        if (airApply) time += (Objects.equals(airSign, "-") ? (tm.getAir() * -1) : tm.getAir());
-        if (earthApply) time += ((Objects.equals(earthSign, "-") ? (tm.getEarth() * -1) : tm.getEarth()) / 5);
-
-        int finalTime = time;
+    private void setTimeToWorks(Time tm, String airSign, String earthSign) {
         db.collection("works" + helicopter.getNumber())
             .get()
             .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                 @Override
                 public void onComplete(@NonNull Task<QuerySnapshot> task) {
                     if (task.isSuccessful()) {
+                        int time = 0;
+                        time += (Objects.equals(airSign, "-") ? (tm.getAir() * -1) : tm.getAir());
+                        time += ((Objects.equals(earthSign, "-") ? (tm.getEarth() * -1) : tm.getEarth()) / 5);
+
                         for (QueryDocumentSnapshot document : task.getResult()) {
                             Work item = document.toObject(Work.class);
 
-                            if (finalTime != 0 && item.getResourceHour() != 0) {
-                                item.setResourceHourCurrent(item.getResourceHourCurrent() + finalTime);
+                            if (time != 0 && item.getResourceHour() != 0) {
+                                item.setResourceHourCurrent(item.getResourceHourCurrent() + time);
                                 item.setResourceHourBalance(item.getResourceHour() - item.getResourceHourCurrent());
 
                                 Firebase fb = new Firebase("works" + helicopter.getNumber(), item.getName());

@@ -150,12 +150,18 @@ public class UsersActivity extends BaseActivity implements RecyclerAdapterUsers.
         TextInputEditText emailField = userForm.findViewById(R.id.email);
         TextInputEditText passwordField = userForm.findViewById(R.id.password);
         SwitchMaterial adminSwitcher = userForm.findViewById(R.id.is_admin);
+        SwitchMaterial isVisibleSectionDetailsSwitcher = userForm.findViewById(R.id.is_visible_section_details);
+        SwitchMaterial isVisibleSectionWorksSwitcher = userForm.findViewById(R.id.is_visible_section_works);
+        SwitchMaterial isVisibleSectionTimesSwitcher = userForm.findViewById(R.id.is_visible_section_times);
 
         if (user != null) {
             loginField.setText(user.getLogin());
             emailField.setText(user.getEmail());
             passwordField.setText(user.getPassword());
             adminSwitcher.setChecked(Objects.equals(user.getRole(), "admin"));
+            isVisibleSectionDetailsSwitcher.setChecked(user.isVisibleSectionDetail());
+            isVisibleSectionWorksSwitcher.setChecked(user.isVisibleSectionWorks());
+            isVisibleSectionTimesSwitcher.setChecked(user.isVisibleSectionTimes());
         }
         // проверка введенного email
         emailField.addTextChangedListener(new TextWatcher() {
@@ -195,9 +201,12 @@ public class UsersActivity extends BaseActivity implements RecyclerAdapterUsers.
                 String email = emailField.getText().toString();
                 String password = passwordField.getText().toString();
                 boolean isAdmin = adminSwitcher.isChecked();
+                boolean isVisibleSectionDetails = isVisibleSectionDetailsSwitcher.isChecked();
+                boolean isVisibleSectionWorks = isVisibleSectionWorksSwitcher.isChecked();
+                boolean isVisibleSectionTimes = isVisibleSectionTimesSwitcher.isChecked();
 
                 if (DataHandler.isValidEmail(email) && DataHandler.isValidNumber(password) && password.length() > 4) {
-                    User item = new User(login, email, password);
+                    User item = new User(login, email, password, isVisibleSectionDetails, isVisibleSectionWorks, isVisibleSectionTimes);
                     if (isAdmin) item.setRole("admin");
 
                     Firebase fb = new Firebase(TABLE, item.getLogin());

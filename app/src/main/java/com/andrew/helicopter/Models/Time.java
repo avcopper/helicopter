@@ -17,6 +17,7 @@ public class Time implements Serializable {
     private int sel;     // отбор (хранится в штуках)
     private int gen;     // ген. реж. (хранится в минутах)
     private int common;  // общее (хранится в минутах)
+    private int land;    // посадки (хранится в штуках)
 
     public Time() {
         LocalDateTime date = LocalDateTime.now();
@@ -29,9 +30,10 @@ public class Time implements Serializable {
         this.sel = 0;
         this.gen = 0;
         this.common = 0;
+        this.land = 0;
     }
 
-    public Time(String date, int air, int earth, int start, int sel, int gen, int common) {
+    public Time(String date, int air, int earth, int start, int sel, int gen, int common, int land) {
         this.date = date;
         this.air = air;
         this.earth = earth;
@@ -39,6 +41,7 @@ public class Time implements Serializable {
         this.sel = sel;
         this.gen = gen;
         this.common = common;
+        this.land = land;
     }
 
     public String getDate() {
@@ -97,7 +100,14 @@ public class Time implements Serializable {
         this.common = common;
     }
 
-    @NonNull
+    public int getLand() {
+        return land;
+    }
+
+    public void setLand(int land) {
+        this.land = land;
+    }
+
     @Override
     public String toString() {
         return "Time{" +
@@ -108,6 +118,7 @@ public class Time implements Serializable {
                 ", sel=" + sel +
                 ", gen=" + gen +
                 ", common=" + common +
+                ", land=" + land +
                 '}';
     }
 

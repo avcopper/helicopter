@@ -18,6 +18,12 @@
         android:textSize="20sp"
         android:textAlignment="center" />
 
+    <com.google.android.material.switchmaterial.SwitchMaterial
+        android:id="@+id/apply"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/apply" />
+
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
@@ -59,14 +65,7 @@
                 android:inputType="time"
                 android:textSize="14sp" />
         </com.google.android.material.textfield.TextInputLayout>
-
     </LinearLayout>
-
-    <com.google.android.material.switchmaterial.SwitchMaterial
-        android:id="@+id/air_switch"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/apply" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -93,14 +92,7 @@
                 android:inputType="time"
                 android:textSize="14sp" />
         </com.google.android.material.textfield.TextInputLayout>
-
     </LinearLayout>
-
-    <com.google.android.material.switchmaterial.SwitchMaterial
-        android:id="@+id/earth_switch"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/apply" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
@@ -113,7 +105,7 @@
             android:layout_height="match_parent"
             app:errorEnabled="true"
             android:hint="@string/start"
-            android:inputType="time"
+            android:inputType="numberDecimal"
             android:textSize="14sp" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -128,7 +120,7 @@
             android:layout_height="match_parent"
             app:errorEnabled="true"
             android:hint="@string/selection"
-            android:inputType="time"
+            android:inputType="numberDecimal"
             android:textSize="14sp" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -159,6 +151,21 @@
             app:errorEnabled="true"
             android:hint="@string/common_time"
             android:inputType="time"
+            android:textSize="14sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginBottom="5dp" >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/landing"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:errorEnabled="true"
+            android:hint="Посадки"
+            android:inputType="numberDecimal"
             android:textSize="14sp" />
     </com.google.android.material.textfield.TextInputLayout>
 
