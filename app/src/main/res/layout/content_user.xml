@@ -17,7 +17,7 @@
             android:id="@+id/login"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:hint="Login"
+            android:hint="@string/login"
             android:inputType="textEmailAddress"
             android:textSize="14sp" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -31,7 +31,7 @@
             android:id="@+id/email"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:hint="Email"
+            android:hint="@string/email"
             android:inputType="textEmailAddress"
             android:textSize="14sp" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -45,7 +45,7 @@
             android:id="@+id/password"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:hint="Password"
+            android:hint="@string/password"
             android:inputType="numberPassword"
             android:textSize="14sp" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -55,13 +55,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
-        android:text="Админ" />
+        android:text="@string/admin" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
-        android:text="Доступ к разделам" />
+        android:text="@string/access_to_sections" />
 
     <View android:layout_height="1dp"
         android:layout_width="match_parent"
@@ -71,19 +71,19 @@
         android:id="@+id/is_visible_section_details"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Список деталей" />
+        android:text="@string/menu_list" />
 
     <com.google.android.material.switchmaterial.SwitchMaterial
         android:id="@+id/is_visible_section_works"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Список работ" />
+        android:text="@string/menu_work" />
 
     <com.google.android.material.switchmaterial.SwitchMaterial
         android:id="@+id/is_visible_section_times"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Рабочее время" />
+        android:text="@string/menu_time" />
 
 <!--    <android.widget.Button-->
 <!--        android:id="@+id/user_save"-->

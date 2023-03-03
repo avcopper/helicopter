@@ -12,12 +12,12 @@
     <item
         android:id="@+id/action_list"
         android:orderInCategory="100"
-        android:title="Список деталей"
+        android:title="@string/menu_list"
         app:showAsAction="never" />
 
     <item
         android:id="@+id/action_work"
         android:orderInCategory="100"
-        android:title="Список работ"
+        android:title="@string/menu_work"
         app:showAsAction="never" />
 </menu>

@@ -164,7 +164,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:errorEnabled="true"
-            android:hint="Посадки"
+            android:hint="@string/landings"
             android:inputType="numberDecimal"
             android:textSize="14sp" />
     </com.google.android.material.textfield.TextInputLayout>

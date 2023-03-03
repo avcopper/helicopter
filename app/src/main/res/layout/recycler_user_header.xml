@@ -15,7 +15,7 @@
         android:textSize="14sp"
         android:textColor="@android:color/black"
         android:layout_weight="2"
-        android:text="Login" />
+        android:text="@string/login" />
 
     <TextView
         android:layout_width="0dp"
@@ -27,7 +27,7 @@
         android:textSize="14sp"
         android:textColor="@android:color/black"
         android:layout_weight="2"
-        android:text="Email" />
+        android:text="@string/email" />
 
     <TextView
         android:layout_width="0dp"
@@ -39,5 +39,5 @@
         android:textSize="14sp"
         android:textColor="@android:color/black"
         android:layout_weight="2"
-        android:text="Role" />
+        android:text="@string/role" />
 </LinearLayout>

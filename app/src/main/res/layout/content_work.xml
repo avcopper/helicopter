@@ -22,7 +22,7 @@
         android:id="@+id/admin_edit"
         android:layout_width="match_parent"
         android:layout_height="30dp"
-        android:text="Редактировать" />
+        android:text="@string/edit" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"

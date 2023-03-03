@@ -15,7 +15,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:enabled="false"
-            android:hint="Посадки назначенные"
+            android:hint="@string/land_global"
             android:inputType="numberDecimal"
             android:textSize="14sp" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -30,7 +30,7 @@
             android:id="@+id/land_global_current"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:hint="Посадки назначенные текущие"
+            android:hint="@string/land_global_current"
             android:inputType="numberDecimal"
             android:textSize="14sp" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -45,7 +45,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:enabled="false"
-            android:hint="Посадки назначенные остаток"
+            android:hint="@string/land_global_balance"
             android:inputType="numberDecimal"
             android:textSize="14sp" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -60,7 +60,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:enabled="false"
-            android:hint="Посадки межремонтные"
+            android:hint="@string/land_repair"
             android:inputType="numberDecimal"
             android:textSize="14sp" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -75,7 +75,7 @@
             android:id="@+id/land_repair_current"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:hint="Посадки межремонтные текущие"
+            android:hint="@string/land_repair_current"
             android:inputType="numberDecimal"
             android:textSize="14sp" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -90,7 +90,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:enabled="false"
-            android:hint="Посадки межремонтные остаток"
+            android:hint="@string/land_repair_balance"
             android:inputType="numberDecimal"
             android:textSize="14sp" />
     </com.google.android.material.textfield.TextInputLayout>

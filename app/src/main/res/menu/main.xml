@@ -12,42 +12,42 @@
     <item
         android:id="@+id/action_list"
         android:orderInCategory="100"
-        android:title="Список деталей"
+        android:title="@string/menu_list"
         app:showAsAction="never" />
 
     <item
         android:id="@+id/action_work"
         android:orderInCategory="100"
-        android:title="Список работ"
+        android:title="@string/menu_work"
         app:showAsAction="never" />
 
     <item
         android:id="@+id/action_time"
         android:orderInCategory="100"
-        android:title="Рабочее время"
+        android:title="@string/menu_time"
         app:showAsAction="never" />
 
     <item
         android:id="@+id/action_select"
         android:orderInCategory="100"
-        android:title="Сменить вертолет"
+        android:title="@string/change_helicopter"
         app:showAsAction="never" />
 
     <item
         android:id="@+id/action_settings"
         android:orderInCategory="100"
-        android:title="Настройки"
+        android:title="@string/menu_settings"
         app:showAsAction="never" />
 
     <item
         android:id="@+id/action_developer"
         android:orderInCategory="100"
-        android:title="О разработчике"
+        android:title="@string/menu_developer"
         app:showAsAction="never" />
 
     <item
         android:id="@+id/action_exit"
         android:orderInCategory="100"
-        android:title="Выход"
+        android:title="@string/menu_exit"
         app:showAsAction="never" />
 </menu>

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
@@ -26,7 +25,7 @@
             android:id="@+id/admin_edit"
             android:layout_width="match_parent"
             android:layout_height="30dp"
-            android:text="Редактировать" />
+            android:text="@string/edit" />
 
         <Spinner
             android:id="@+id/group"
@@ -46,7 +45,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:enabled="false"
-                android:hint="Тип шаблона (1 - общий, 2 - всу, 3 - посадки)"
+                android:hint="@string/type_template"
                 android:inputType="text"
                 android:textSize="14sp" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -79,21 +78,6 @@
                 android:inputType="text"
                 android:textSize="14sp" />
         </com.google.android.material.textfield.TextInputLayout>
-
-<!--        <com.google.android.material.textfield.TextInputLayout-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="50dp"-->
-<!--            android:layout_marginBottom="5dp" >-->
-
-<!--            <com.google.android.material.textfield.TextInputEditText-->
-<!--                android:id="@+id/group"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="match_parent"-->
-<!--                android:enabled="false"-->
-<!--                android:hint="@string/group"-->
-<!--                android:inputType="text"-->
-<!--                android:textSize="14sp" />-->
-<!--        </com.google.android.material.textfield.TextInputLayout>-->
 
         <include
             android:id="@+id/detail_block_main"
