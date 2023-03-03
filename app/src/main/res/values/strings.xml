@@ -20,6 +20,18 @@
     <string name="action_reload">Обновить</string>
     <string name="delete">Удалить</string>
 
+    <string name="_1">1</string>
+    <string name="_2">2</string>
+    <string name="_3">3</string>
+    <string name="_4">4</string>
+    <string name="_5">5</string>
+    <string name="_6">6</string>
+    <string name="_7">7</string>
+    <string name="_8">8</string>
+    <string name="_9">9</string>
+    <string name="_0">0</string>
+    <string name="backspace">⌫</string>
+
     <string name="list_user">Список пользователей</string>
     <string name="add_user">Добавить пользователя</string>
     <string name="select_helicopter">Выберите вертолет</string>
@@ -35,6 +47,13 @@
     <string name="factory_number">Заводской номер</string>
     <string name="name">Наименование</string>
     <string name="group">Группа</string>
+    <string name="login">Login</string>
+    <string name="role">Role</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="admin">Админ</string>
+    <string name="access_to_sections">Доступ к разделам</string>
+
     <string name="resource_global">Ресурс назначенный</string>
     <string name="resource_global_current">Ресурс назначенный текущий</string>
     <string name="resource_global_balance">Ресурс назначенный остаток</string>
@@ -67,6 +86,7 @@
     <string name="bort">борт</string>
     <string name="enter_password">Введите пароль</string>
     <string name="edit">Редактировать</string>
+    <string name="landings">Посадки</string>
     <string name="type_template">Тип шаблона (1 - общий, 2 - всу, 3 - посадки)</string>
     <string name="land_global">Посадки назначенные</string>
     <string name="land_global_current">Посадки назначенные текущие</string>
@@ -98,24 +118,6 @@
     <string name="common_repair">Общий межремонтный</string>
     <string name="common_repair_current">Общий межремонтный текущий</string>
     <string name="common_repair_balance">Общий межремонтный остаток</string>
-    <string name="_1">1</string>
-    <string name="_2">2</string>
-    <string name="_3">3</string>
-    <string name="_4">4</string>
-    <string name="_5">5</string>
-    <string name="_6">6</string>
-    <string name="_7">7</string>
-    <string name="_8">8</string>
-    <string name="_9">9</string>
-    <string name="_0">0</string>
-    <string name="backspace">⌫</string>
-    <string name="login">Login</string>
-    <string name="role">Role</string>
-    <string name="email">Email</string>
-    <string name="password">Password</string>
-    <string name="landings">Посадки</string>
-    <string name="admin">Админ</string>
-    <string name="access_to_sections">Доступ к разделам</string>
 
     <string-array name="groups">
         <item>Все</item>
